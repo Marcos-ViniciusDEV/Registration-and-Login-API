@@ -1,6 +1,7 @@
 import express, { urlencoded } from "express";
 import helmet from "helmet";
 import cors from "cors";
+import { router } from "../src/routes/index";
 const server = express();
 
 server.use(helmet());
@@ -8,6 +9,7 @@ server.use(cors());
 server.use(urlencoded({ extended: true }));
 server.disable("x-powered-by");
 server.use(express.json());
+server.use(router);
 
 const port = process.env.PORT;
 
