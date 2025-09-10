@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.3.1",
+    "@types/passport-local": "^1.0.38",
+    "prisma": "^6.15.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  },
+  "name": "registration-and-login-api",
+  "version": "1.0.0",
+  "main": "./src/server.js",
+  "scripts": {
+    "dev": "node --env-file=.env --import=tsx --watch ./src/server.ts"
+  },
+  "author": "Marcos Vinicius",
+  "license": "ISC",
+  "description": ""
+}
