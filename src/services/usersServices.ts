@@ -1,3 +1,4 @@
+import e from "cors";
 import { Prisma, PrismaClient } from "../generated/prisma";
 import bcrypt from "bcrypt";
 
@@ -16,6 +17,22 @@ export const userCreate = async (data: Prisma.usersCreateManyInput) => {
     data: {
       ...data,
       password: hashedPassword,
+    },
+  });
+};
+
+export const findUserByEmail = async (email: string) => {
+  return await prisma.users.findUnique({
+    where: {
+      email: email,
+    },
+  });
+};
+
+export const findUserById = async (id: number) => {
+  return await prisma.users.findUnique({
+    where: {
+      id: id,
     },
   });
 };
