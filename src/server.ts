@@ -4,7 +4,7 @@ import cors from "cors";
 import { router } from "../src/routes/index";
 import passport from "passport";
 import { localStrategy } from "./libs/passport-Local";
-// import session from "express-session";
+import { jwtStrategy } from "./libs/passport-JWT";
 
 const server = express();
 
@@ -14,17 +14,9 @@ server.use(urlencoded({ extended: true }));
 server.disable("x-powered-by");
 server.use(express.json());
 
-// server.use(
-//   session({
-//     secret: "yourSecretHere", // Troque por uma string aleatória
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: { secure: false }, // Em produção, use 'true' se estiver em HTTPS
-//   })
-// );
-
 server.use(passport.initialize());
 passport.use(localStrategy);
+passport.use(jwtStrategy);
 
 server.use(router);
 
